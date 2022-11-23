@@ -1,0 +1,12 @@
+#   provisioner "file" {
+#     source      = "script.sh"
+#     destination = "/tmp/script.sh"
+#     connection {
+#       type        = "ssh"
+#       user        = "ubuntu"
+#       private_key = file("mumbai.pem")
+#       #host = "${aws_instances.web-1.public_ip"}
+#       host = element(aws_instances.public-server.*.public_ip, count.index)
+#     }
+#   }
+# }
